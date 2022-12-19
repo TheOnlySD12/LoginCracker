@@ -28,8 +28,9 @@ try:
         for line in open(in_psw_list, 'r'):
             psw_sel = chrome.find_element(by=By.CSS_SELECTOR, value=in_psw_sel)
             psw_sel.send_keys(line)
+            psw_sel.clear()
             time.sleep(0.25)
-            print("\n-----------------------\nTried: " + line)
+            print("-----------------------\nTried: " + line)
             pos_pass = line
 except selenium.common.exceptions.NoSuchElementException:
     if pos_pass == "":
